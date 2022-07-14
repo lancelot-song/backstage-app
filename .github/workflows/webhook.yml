@@ -83,13 +83,19 @@ jobs:
                 }, {
                   "tag": "hr"
                 }, {
+                  "tag": "div",
+                  "text": {
+                    "tag": "lark_md",
+                    "content": "${{ github.event.head_commit.message }}"
+                  }
+                }, 
+                {
                   "tag": "note",
                   "elements": [{
                     "tag": "lark_md",
-                    "content": "📍 ${{ github.event.head_commit.message }}"
+                    "content": "👉 View [View Commit](${{ github.event.compare }}) by *${{github.actor}}"
                   }]
-                }, 
-                {
+                }, {
                   "tag": "action",
                   "actions": [
                     {
@@ -99,9 +105,9 @@ jobs:
                         "content": "查看项目"
                       },
                       "type": "default",
-                      "url": "${{ github.event.compare }}"
+                      "url": "${{ github.event.repository.html_url }}"
                     }
                   ]
-                }
+                }]
               }
             }
