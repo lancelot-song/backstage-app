@@ -45,7 +45,7 @@ jobs:
                   "tag": "div",
                   "text": {
                     "tag": "lark_md",
-                    "content": "${{ github.event.pull_request.body }}"
+                    "content": "${{ github.event.pull_request.body || '--' }}"
                   }
                 }, {
                   "tag": "action",
