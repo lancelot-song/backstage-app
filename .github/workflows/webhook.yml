@@ -3,15 +3,15 @@ name: Webhook CI
 on: [push, pull_request]
 
 jobs:
-  push_and_pull_request_ci:
+  pull_request:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
     steps:
-      - name: Webhook to gitlab
+      - name: call webhook
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.BACKSTAGE_WEBHOOK_URL }}
           headers: ''
+          if: ${{ github.event_name == 'pull_request' }}
           body: |
             {
               "msg_type": "interactive",
@@ -22,7 +22,7 @@ jobs:
                 },
                 "header": {
                     "title": {
-                        "content": "Backstage-app ${{github.event_name}} triggered",
+                        "Backstage-app ${{ github.event.action }} ${{github.event_name}} triggered from ${{github.actor}}",
                         "tag": "plain_text"
                     },
                     "template": "turquoise"
@@ -39,7 +39,60 @@ jobs:
                   "tag": "note",
                   "elements": [{
                     "tag": "lark_md",
-                    "content": "${{github.ref}},refname${{github.ref_name}},action_ref:${{github.action_ref}},event_path:${{github.event_path}},actor:${{github.actor}},baseref:${{github.base_ref}}"
+                    "content": "${{ github.event.pull_request.html_url }}"
+                  }]
+                },{
+                  "tag": "note",
+                  "elements": [{
+                    "tag": "lark_md",
+                    "content": "${{ github.event.pull_request.title }}"
+                  }]
+                }]
+              }
+            }
+  push:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - name: call webhook
+        uses: joelwmale/webhook-action@master
+        with:
+          url: ${{ secrets.BACKSTAGE_WEBHOOK_URL }}
+          headers: ''
+          body: |
+            {
+              "msg_type": "interactive",
+              "card": {
+                "config": {
+                  "wide_screen_mode": true,
+                  "enable_forward": true
+                },
+                "header": {
+                    "title": {
+                        "content": "Backstage-app ${{github.event_name}} triggered from ${{github.actor}}",
+                        "tag": "plain_text"
+                    },
+                    "template": "blue"
+                },
+                "elements": [{
+                  "tag": "note",
+                  "elements": [{
+                    "tag": "lark_md",
+                    "content": "🎯 Branch: ${{github.ref_name}}"
+                  }]
+                }, {
+                  "tag": "hr"
+                }, {
+                  "tag": "note",
+                  "elements": [{
+                    "tag": "lark_md",
+                    "content": "${{ github.event.head_commit.message }}"
+                  }]
+                }, {
+                  "tag": "note",
+                  "elements": [{
+                    "tag": "lark_md",
+                    "content": "${{ github.event.compare }}"
                   }]
                 }]
               }
