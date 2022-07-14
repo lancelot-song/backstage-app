@@ -99,7 +99,7 @@ jobs:
                         "content": "查看项目"
                       },
                       "type": "default",
-                      url: "${{ github.event.compare }}"
+                      "url": "${{ github.event.compare }}"
                     }
                   ]
                 }
