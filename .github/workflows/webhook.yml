@@ -56,7 +56,7 @@ jobs:
                         "tag": "plain_text",
                         "content": "查看 PR"
                       },
-                      "type": "default",
+                      "type": "primary",
                       "url": "${{ github.event.pull_request.html_url }}"
                     },
                     {
@@ -126,7 +126,7 @@ jobs:
                         "tag": "plain_text",
                         "content": "查看项目"
                       },
-                      "type": "default",
+                      "type": "primary",
                       "url": "${{ github.event.repository.html_url }}"
                     }
                   ]
