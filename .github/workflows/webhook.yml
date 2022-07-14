@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   pull_request:
+    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     steps:
       - name: call webhook
@@ -11,7 +12,6 @@ jobs:
         with:
           url: ${{ secrets.BACKSTAGE_WEBHOOK_URL }}
           headers: ''
-          if: ${{ github.event_name == 'pull_request' }}
           body: |
             {
               "msg_type": "interactive",
@@ -73,8 +73,8 @@ jobs:
               }
             }
   push:
-    runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-latest
     steps:
       - name: call webhook
         uses: joelwmale/webhook-action@master
