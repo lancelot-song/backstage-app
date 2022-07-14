@@ -39,7 +39,7 @@ jobs:
                   "tag": "note",
                   "elements": [{
                     "tag": "lark_md",
-                    "content": "${{github.ref}},action:${{github.action}},actor:${{github.actor}},baseref:${{github.base_ref}}"
+                    "content": "${{github.ref}},refname${{github.ref_name}},action_ref:${{github.action_ref}},event_path:${{github.event_path}},actor:${{github.actor}},baseref:${{github.base_ref}}"
                   }]
                 }]
               }
