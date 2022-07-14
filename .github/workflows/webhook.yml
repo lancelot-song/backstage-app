@@ -22,7 +22,7 @@ jobs:
                 },
                 "header": {
                     "title": {
-                        "Backstage-app ${{ github.event.action }} ${{github.event_name}} triggered from ${{github.actor}}",
+                        "content": "Backstage-app ${{ github.event.action }} ${{github.event_name}} triggered from ${{github.actor}}",
                         "tag": "plain_text"
                     },
                     "template": "turquoise"
