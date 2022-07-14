@@ -31,7 +31,7 @@ jobs:
                   "tag": "note",
                   "elements": [{
                     "tag": "lark_md",
-                    "content": "🎯 Branch: ${{github.head_ref}} 👉 ${{github.base_ref}}"
+                    "content": "🎯 Branch: ${{ github.head_ref }} 👉 ${{ github.base_ref }}"
                   }]
                 }, {
                   "tag": "hr"
@@ -39,13 +39,13 @@ jobs:
                   "tag": "note",
                   "elements": [{
                     "tag": "lark_md",
-                    "content": "📍 ${{ github.event.pull_request.pull_request.title }}"
+                    "content": "📍 ${{ github.event.pull_request.title }}"
                   }]
                 }, {
                   "tag": "div",
                   "text": {
                     "tag": "lark_md",
-                    "content": "${{ github.event.pull_request.pull_request.body }}"
+                    "content": "${{ github.event.pull_request.body }}"
                   }
                 }, {
                   "tag": "action",
@@ -57,7 +57,7 @@ jobs:
                         "content": "查看 PR"
                       },
                       "type": "default",
-                      "url": "${{ github.event.pull_request.pull_request.html_url }}"
+                      "url": "${{ github.event.pull_request.html_url }}"
                     },
                     {
                       "tag": "button",
@@ -66,7 +66,7 @@ jobs:
                         "content": "查看项目"
                       },
                       "type": "default",
-                      "url": "${{ github.event.pull_request.pull_request.head.repo.html_url }}"
+                      "url": "${{ github.event.pull_request.head.repo.html_url }}"
                     }
                   ]
                 }]
