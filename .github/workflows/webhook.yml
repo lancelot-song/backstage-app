@@ -31,7 +31,7 @@ jobs:
                   "tag": "note",
                   "elements": [{
                     "tag": "lark_md",
-                    "content": "branch: ${{github.ref_name}}"
+                    "content": "🎯 Branch: ${{github.head_ref}} 👉 ${{github.base_ref}}"
                   }]
                 }, {
                   "tag": "hr"
@@ -39,14 +39,36 @@ jobs:
                   "tag": "note",
                   "elements": [{
                     "tag": "lark_md",
-                    "content": "📍 ${{ github.event.pull_request.pull_request.html_url }}"
+                    "content": "📍 ${{ github.event.pull_request.pull_request.title }}"
                   }]
                 }, {
-                  "tag": "note",
-                  "elements": [{
+                  "tag": "div",
+                  "text": {
                     "tag": "lark_md",
-                    "content": "${{ github.event.pull_request.pull_request.title }}"
-                  }]
+                    "content": "${{ github.event.pull_request.pull_request.body }}"
+                  }
+                }, {
+                  "tag": "action",
+                  "actions": [
+                    {
+                      "tag": "button",
+                      "text": {
+                        "tag": "plain_text",
+                        "content": "查看 PR"
+                      },
+                      "type": "default",
+                      "url": "${{ github.event.pull_request.pull_request.html_url }}"
+                    },
+                    {
+                      "tag": "button",
+                      "text": {
+                        "tag": "plain_text",
+                        "content": "查看项目"
+                      },
+                      "type": "default",
+                      "url": "${{ github.event.pull_request.pull_request.head.repo.html_url }}"
+                    }
+                  ]
                 }]
               }
             }
@@ -93,7 +115,7 @@ jobs:
                   "tag": "note",
                   "elements": [{
                     "tag": "lark_md",
-                    "content": "👉 View [View Commit](${{ github.event.compare }}) by *${{github.actor}}"
+                    "content": "👉 View [View Commit](${{ github.event.compare }}) by *${{github.actor}}*"
                   }]
                 }, {
                   "tag": "action",
