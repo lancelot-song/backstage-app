@@ -5,10 +5,10 @@ metadata:
   description: |
     support create order payment
   links:
-    - title: Gitlab
-      url: https://gitla.ai/cloud/service/billing-service
+    - title: Github
+      url: https://github.com/lancelot-song/backstage-app
     - title: Documentation
-      url: https://gitlab.ai/cloud/service/billing-service/-/tree/feature/swagger_auto_create_api_doc/doc
+      url: https://github.com/lancelot-song/backstage-app/blob/feature/docs/docs/index.md
   annotations:
     github.com/project-slug: lancelot-song/backstage-app
 spec:
