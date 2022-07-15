@@ -10,7 +10,7 @@ metadata:
     - title: Documentation
       url: https://gitlab.ai/cloud/service/billing-service/-/tree/feature/swagger_auto_create_api_doc/doc
   annotations:
-    gitlab.com/project-id: '2410'
+    github.com/project-slug: lancelot-song/backstage-app
 spec:
   type: service
   lifecycle: production
