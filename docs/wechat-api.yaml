@@ -6,7 +6,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: uisee-cloud
+  owner: cloud
   system: billing-service
   definition: |
     openapi: 3.0.0

@@ -6,13 +6,13 @@ metadata:
     support create order payment
   links:
     - title: Gitlab
-      url: https://gitlab.uisee.ai/cloud/service/billing-service
+      url: https://gitla.ai/cloud/service/billing-service
     - title: Documentation
-      url: https://gitlab.uisee.ai/cloud/service/billing-service/-/tree/feature/swagger_auto_create_api_doc/doc
+      url: https://gitlab.ai/cloud/service/billing-service/-/tree/feature/swagger_auto_create_api_doc/doc
   annotations:
     gitlab.com/project-id: '2410'
 spec:
   type: service
   lifecycle: production
-  owner: uisee
+  owner: cloud
   providesApis: [wechat-APIs]
