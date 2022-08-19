@@ -4,9 +4,9 @@ on:
   push:
     branches: [feature/docs]
     # You can even set it to run only when TechDocs related files are updated.
-    # paths:
+    paths:
     #   - "docs/**"
-    #   - "mkdocs.yml"
+    - "mkdocs.yml"
 
 jobs:
   publish-techdocs-site:
