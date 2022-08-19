@@ -1,0 +1,4 @@
+site_name: docs
+site_description: Documentation site test
+nav:
+  - Home: index.md
