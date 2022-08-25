@@ -68,12 +68,14 @@ techdocs:
   builder: 'external' # Alternatives - 'external'
   publisher:
     type: 'awsS3' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
-    bucketName: 'backstage-techdocs'
-    bucketRootPath: '/'
-    credentials:
-        accessKeyId: 'cloud!234'
-        secretAccessKey: 'cloud@uisee.com'
-    endpoint: '10.9.171.134:32000'
+    awsS3:
+      bucketName: 'backstage-techdocs'
+      bucketRootPath: '/'
+      credentials:
+          accessKeyId: 'cloud@uisee.com'
+          secretAccessKey: 'cloud!234'
+      endpoint: 'http://10.9.171.134:32000'
+      s3ForcePathStyle: true
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
