@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: service-billing
+  tags:
+    - nodejs
+  links:
+    - title: Gitlab
+      url: https://gitlab.uisee.ai/cloud/service/billing-service
+    - title: Documentation
+      url: https://gitlab.uisee.ai/cloud/service/billing-service/-/tree/feature/swagger_auto_create_api_doc/doc
+  annotations:
+    gitlab.com/project-id: '2410'
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: published
+  owner: frontend-satellite
+  system: billing
+  providesApis: [service-billing-wechat-api]
